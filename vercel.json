@@ -1,11 +1,19 @@
 {
-  "buildCommand": "echo 'Static site'",
-  "outputDirectory": ".",
-  "public": true,
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/:path*",
-      "destination": "/:path*.html"
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "artigo*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
